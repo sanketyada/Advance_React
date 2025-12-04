@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
-function ChildComponent(props) {
+let ChildComponent = React.memo((props) => {
+  console.log("This is Child Components");
   return (
     <div>
-    <p></p>
-      Child Component name is {props.name}
+      <button>{props.btnName}</button>
     </div>
-  )
-}
+  );
+});
 
-export default ChildComponent
+export default ChildComponent;
+
+
