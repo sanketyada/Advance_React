@@ -8,23 +8,24 @@ import UseRefDom from "./components/useRef/useRefDom";
 import UseMemoTest from "./components/useMemo/useMemoTest";
 import UseCallBack from "./components/useCallback/UseCallBack";
 import useCurrencyInfo from "./components/customHook/useCurrencyInfo";
+import Test from "./components/Test";
 
 function App() {
   const [eachCurrencey, setEachCurrency] = useState([]);
   const [count, setCount] = useState(0);
   const detail = useCurrencyInfo("usd");
 
-  useEffect(() => {
-    if (!detail) return;
+  // useEffect(() => {
+  //   if (!detail) return;
 
-    const arr = Object.entries(detail).map(([key, value]) => ({
-      symbol: key,
-      amount: value,
-    }));
+  //   const arr = Object.entries(detail).map(([key, value]) => ({
+  //     symbol: key,
+  //     amount: value,
+  //   }));
 
-    setEachCurrency(arr);
-  }, [detail]);
-  eachCurrencey.map((value) => console.log(value));
+  //   setEachCurrency(arr);
+  // }, [detail]);
+  // eachCurrencey.map((value) => console.log(value));
   return (
     <>
       {/* <UseStateHook/> */}
@@ -32,11 +33,12 @@ function App() {
     <UseRefDom/> */}
       {/* <UseMemoTest/> */}
       {/* <UseCallBack/> */}
-      {eachCurrencey.map((value) => (
+      {/* {eachCurrencey.map((value) => (
         <div>
           <p><b>{value.symbol}</b>:{value.amount}</p>
         </div>
-      ))}
+      ))} */}
+      <Test/>
     </>
   );
 }
