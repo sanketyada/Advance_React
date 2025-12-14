@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Navbar() {
+function ContactUs() {
   return (
     <div>
-      Navbar
+      ContactUS 
     </div>
   )
 }
 
-export default Navbar
+export default ContactUs
