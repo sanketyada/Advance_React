@@ -1,8 +1,17 @@
 import React from "react";
+import { lazy, Suspense } from "react";
 import { Outlet, Route, Router, Routes } from "react-router-dom";
-import { ContactUs, Home, Support, Product,YourProduct } from "../pages/index.js";
+import {
+  ContactUs,
+  Home,
+  Product,
+  Support,
+  YourProduct,
+} from "../pages/index.js";
 import Layout from "../componnets/layout/Layout.jsx";
-import ProductRoutes from "./ProductRoutes.jsx";
+import ProtectedRoutes from "./ProtectedRoutes.jsx";
+// import Test from "../Test.jsx";
+const Test = lazy(() => import("../Test.jsx"));
 // element={<Product />}
 function AppRoutes() {
   return (
@@ -13,13 +22,22 @@ function AppRoutes() {
         <Route path="/support" element={<Support />} />
         <Route path="/products" element={<Product />} />
         <Route
+          path="/test"
+          element={
+            <Suspense fallback={<h2>Loading Contact...</h2>} >
+              <Test />
+            </Suspense>
+          }
+        />
+        <Route
           path="products/:id"
           element={
-            <ProductRoutes>  //Your wraped with ProductRoutes it work as Authentication
+            <ProtectedRoutes>
+              {" "}
+              //Your wraped with ProductRoutes it work as Authentication
               <YourProduct />
-            </ProductRoutes>
+            </ProtectedRoutes>
           }
-          
         />
       </Route>
     </Routes>

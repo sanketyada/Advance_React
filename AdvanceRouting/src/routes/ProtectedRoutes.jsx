@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-function ProductRoutes({ children }) {
+function ProtectedRoutes({ children }) {
   const isLoggedIn = localStorage.getItem("token");
   if (!isLoggedIn) {
     console.log("Please insert data in localstorage as =")//localStorage.setItem("token", "abc123")
@@ -11,4 +11,4 @@ function ProductRoutes({ children }) {
   return children;
 }
 
-export default ProductRoutes;
+export default ProtectedRoutes;
